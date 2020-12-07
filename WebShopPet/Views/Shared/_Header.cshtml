@@ -1,0 +1,197 @@
+﻿<header>
+    <div class="mobile-fix-option"></div>
+    <div class="top-header"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main-menu">
+                    <div class="menu-left">
+                        <div class="navbar">
+                            <div id="mySidenav" class="sidenav">
+                                <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
+                                <nav>
+                                    <div onclick="closeNav()">
+                                        <div class="sidebar-back text-left">
+                                            <i class="fa fa-angle-left pr-2"
+                                               aria-hidden="true"></i> Back
+                                        </div>
+                                    </div>
+                                    <ul id="sub-menu" class="sm pixelstrap sm-vertical"></ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="brand-logo">
+                            <a href="~/Home/Index">
+                                <img src="~/Assets/User/img/logo.png"
+                                     class="img-fluid blur-up lazyload" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="menu-right pull-right">
+                        <div>
+                            <nav id="main-nav">
+                                <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
+                                <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+                                    <li>
+                                        <div class="mobile-back text-right">
+                                            Back<i class="fa fa-angle-right pl-2"
+                                                   aria-hidden="true"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="~/Product/Index">Gấu Teddy</a>
+                                        <ul>
+                                            <li>
+                                                <a href="~/Product/Index">Gấu Teddy cao 1m5</a>
+                                            </li>
+                                            <li>
+                                                <a href="~/Product/Index">Gấu Teddy khổng lồ</a>
+                                            </li>
+                                        </ul>
+                                    <li>
+                                        <a href="~/Product/Index">Hoạt Hình</a>
+                                        <ul>
+                                            <li><a href="~/Product/Index">Hello kitty</a></li>
+                                            <li><a href="~/Product/Index">Doremon</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="~/Product/Index">Thú bông</a>
+                                        <ul>
+                                            <li>
+                                                <a href="~/Product/Index">Chó bông</a>
+                                            </li>
+                                            <li>
+                                                <a href="~/Product/Index">Mèo bông</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="~/Product/Index">Gối bông và phụ kiện</a>
+                                        <ul>
+                                            <li>
+                                                <a href="~/Product/Index">Gấu bông trà sữa <span class="new-tag">new</span></a>
+                                                <ul>
+                                                    <li><a href="~/Product/Index">Gấu bông chữ U</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div>
+                            <div class="icon-nav">
+                                <ul>
+                                    <li class="onhover-div mobile-search">
+                                        <div>
+                                            <img src="~/Assets/User/img/search.png" onclick="openSearch()"
+                                                 class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
+                                                                                               onclick="openSearch()"></i>
+                                        </div>
+                                        <div id="search-overlay" class="search-overlay">
+                                            <div>
+                                                <span class="closebtn" onclick="closeSearch()"
+                                                      title="Close Overlay">×</span>
+                                                <div class="overlay-content">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <form>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control"
+                                                                               id="exampleInputPassword1"
+                                                                               placeholder="Search a Product">
+                                                                    </div>
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="onhover-div mobile-setting">
+                                        <div><img src="~/Assets/User/img/user-male.png" /></div>
+                                        <div class="show-div setting">
+                                            <h6>Account</h6>
+                                            <ul>
+                                                <li><a href="#">Profile</a></li>
+                                                <li>
+                                                    @Html.ActionLink("Đăng nhập", "create", "Session")
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="onhover-div mobile-cart">
+                                        <div>
+                                            <img src="~/Assets/User/img/cart.png"
+                                                 class="img-fluid blur-up lazyload" alt=""> <i class="ti-shopping-cart"></i>
+                                        </div>
+                                        <ul class="show-div shopping-cart">
+                                            <li>
+                                                <div class="media">
+                                                    <a href="#">
+                                                        <img src="~/Assets/User/img/trau-ao-sao-2-copy-300x300 (1).jpg" />
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a href="#">
+                                                            <h4>item name</h4>
+                                                        </a>
+                                                        <h4><span>1 x $ 299.00</span></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="close-circle">
+                                                    <a href="#">
+                                                        <i class="fa fa-times"
+                                                           aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <a href="#">
+                                                        <img alt="" class="mr-3"
+                                                        src="~/Assets/User/img/trau-ao-sao-2-copy-300x300 (1).jpg">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a href="#">
+                                                            <h4>item name</h4>
+                                                        </a>
+                                                        <h4><span>1 x $ 299.00</span></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="close-circle">
+                                                    <a href="#">
+                                                        <i class="fa fa-times"
+                                                           aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="total">
+                                                    <h5>subtotal : <span>$299.00</span></h5>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="buttons">
+                                                    <a href="~/Cart/Index" class="view-cart">
+                                                        view
+                                                        cart
+                                                    </a> <a href="~/Cart/New" class="checkout">checkout</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
