@@ -17,11 +17,11 @@ namespace WebShopPet.Models
 
         public int ID { get; set; }
 
-        public int? USER_ID { get; set; }
+        public int USER_ID { get; set; }
 
-        public int? TOTAL_AMOUNT { get; set; }
+        public int TOTAL_AMOUNT { get; set; }
 
-        public int? STATUS { get; set; }
+        public int STATUS { get; set; }
 
         [StringLength(50)]
         public string ADDRESS { get; set; }
@@ -29,7 +29,8 @@ namespace WebShopPet.Models
         [StringLength(10)]
         public string PHONE { get; set; }
 
-        public DateTime? CREATED { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? DATE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_DETAILS> ORDER_DETAILS { get; set; }

@@ -25,6 +25,9 @@ namespace WebShopPet
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/toastr").Include("~/Scripts/toastr.js"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/toastr.css"));
         }
     }
 }

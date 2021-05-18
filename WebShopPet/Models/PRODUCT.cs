@@ -17,14 +17,14 @@ namespace WebShopPet.Models
 
         public int ID { get; set; }
 
-        public int? USER_ID { get; set; }
+        public int CATEGORY_ID { get; set; }
 
-        public int? CATEGORY_ID { get; set; }
-
-        public int? BRAND_ID { get; set; }
+        public int BRAND_ID { get; set; }
 
         [StringLength(50)]
         public string NAME { get; set; }
+
+        public int? IMPORT_PRICE { get; set; }
 
         public int? PRICE { get; set; }
 
@@ -51,7 +51,5 @@ namespace WebShopPet.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_DETAILS> ORDER_DETAILS { get; set; }
-
-        public virtual USER USER { get; set; }
     }
 }

@@ -6,18 +6,24 @@
 
 
 <div class="container">
-    @using (Html.BeginForm("edit", "Users", FormMethod.Post, new { @class = "theme-form", @id = "form", encrypt = "multipart/form-data" }))
+    @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
+            @{ 
+                string ImagePath = Model.AVATAR;
+            }
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.ID)
             <div class="form-group">
-                <p><img id="output" width="200" /></p>
-                <lable for="upfile" style="cursor: pointer;">Avatar</lable>
-                <p><input name="document" type="file" id="upfile" onchange="loadFile(event)"/></p>
+                @Html.LabelFor(model => model.AVATAR, "Ảnh", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <img id="output" src="@Url.Content(ImagePath)" width="250" height="200" />
+                    <p><label for="ufile" style="cursor: pointer;">Chọn file ảnh</label></p>
+                    <input name="IMAGEFile" id="ufile" type="file" style="display:none;" onchange="loadFile(event)" />
+                </div>
+                @Html.HiddenFor(model => model.AVATAR)
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.NAME, htmlAttributes: new { @class = "control-label col-md-2" })

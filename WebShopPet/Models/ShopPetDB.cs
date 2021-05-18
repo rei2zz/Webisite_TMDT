@@ -8,7 +8,7 @@ namespace WebShopPet.Models
     public partial class ShopPetDB : DbContext
     {
         public ShopPetDB()
-            : base("name=ShopPetDB")
+            : base("name=ShopPetDB2")
         {
         }
 
@@ -28,13 +28,15 @@ namespace WebShopPet.Models
 
             modelBuilder.Entity<BRAND>()
                 .HasMany(e => e.PRODUCTS)
-                .WithOptional(e => e.BRAND)
-                .HasForeignKey(e => e.BRAND_ID);
+                .WithRequired(e => e.BRAND)
+                .HasForeignKey(e => e.BRAND_ID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CATEGORy>()
                 .HasMany(e => e.PRODUCTS)
-                .WithOptional(e => e.CATEGORy)
-                .HasForeignKey(e => e.CATEGORY_ID);
+                .WithRequired(e => e.CATEGORy)
+                .HasForeignKey(e => e.CATEGORY_ID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ORDER>()
                 .Property(e => e.PHONE)
@@ -43,26 +45,30 @@ namespace WebShopPet.Models
 
             modelBuilder.Entity<ORDER>()
                 .HasMany(e => e.ORDER_DETAILS)
-                .WithOptional(e => e.ORDER)
-                .HasForeignKey(e => e.ORDER_ID);
+                .WithRequired(e => e.ORDER)
+                .HasForeignKey(e => e.ORDER_ID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PRODUCT>()
                 .HasMany(e => e.ORDER_DETAILS)
-                .WithOptional(e => e.PRODUCT);
+                .WithRequired(e => e.PRODUCT)
+                .HasForeignKey(e => e.PRODUCT_ID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<USER>()
-                .HasIndex(p => new { p.EMAIL })
-                .IsUnique(true);
+                .Property(e => e.PASSWORD)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<USER>()
+                .Property(e => e.AVATAR)
+                .IsUnicode(false);
 
             modelBuilder.Entity<USER>()
                 .HasMany(e => e.ORDERS)
-                .WithOptional(e => e.USER)
-                .HasForeignKey(e => e.USER_ID);
-
-            modelBuilder.Entity<USER>()
-                .HasMany(e => e.PRODUCTS)
-                .WithOptional(e => e.USER)
-                .HasForeignKey(e => e.USER_ID);
+                .WithRequired(e => e.USER)
+                .HasForeignKey(e => e.USER_ID)
+                .WillCascadeOnDelete(false);
         }
     }
 }

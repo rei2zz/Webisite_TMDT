@@ -59,11 +59,17 @@
 /*=====================
     1.General CSS start
 ==========================*/
+.sortprice, .sortname{
+    color: black!important;
+    margin-right: 20px!important;
+    font-weight: bold;
+}
 body {
-  font-family: Lato, sans-serif;
-  position: relative;
-  background: #ffffff;
-  font-size: 14px; }
+    font-family: Lato, sans-serif;
+    position: relative;
+    background: #ffffff;
+    font-size: 14px;
+}
   body.christmas {
     font-family: Philosopher, sans-serif; }
     body.christmas .dark-light {
@@ -7235,9 +7241,6 @@ footer {
     .product-wrapper-grid.list-view .product-box .product-detail h6 {
       font-weight: 700; }
 
-.collection-product-wrapper .product-top-filter {
-  border-bottom: 1px solid #dddddd;
-  border-top: 1px solid #dddddd; }
   .collection-product-wrapper .product-top-filter .product-filter-content,
   .collection-product-wrapper .product-top-filter .popup-filter {
     display: -webkit-box;
@@ -7447,8 +7450,6 @@ footer {
       margin-right: 5px; }
 
 .product-pagination {
-  border-bottom: 1px solid #dddddd;
-  border-top: 1px solid #dddddd;
   margin: 50px 0; }
   .product-pagination .pagination {
     border-radius: 0; }

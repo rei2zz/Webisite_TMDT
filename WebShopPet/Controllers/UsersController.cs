@@ -11,19 +11,21 @@ using WebShopPet.Models;
 
 namespace WebShopPet.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
-        private ShopPetDB db = new ShopPetDB();
+        private ShopPetDB db = new ShopPetDB();     
 
         // GET: Users
         public ActionResult Index()
         {
+            LoadCategories();
             return View(db.USERS.ToList());
         }
 
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
+            LoadCategories();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -72,6 +74,7 @@ namespace WebShopPet.Controllers
         // GET: Users/Edit/5
         public ActionResult Edit(int? id)
         {
+            LoadCategories();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -89,23 +92,31 @@ namespace WebShopPet.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NAME,SEX,EMAIL,PASSWORD")] USER uSER)
+        public ActionResult Edit([Bind(Include = "ID,NAME,SEX,EMAIL,PASSWORD, AVATAR")] USER uSER)
         {
-            var f = Request.Files["document"];
-            if(f != null &&  f.ContentLength > 0)
+            LoadCategories();
+            try
             {
-                string FileName = System.IO.Path.GetFileName(f.FileName);
-                string UpLoadPath = Server.MapPath("/~Assets/User/img" + FileName);
-                f.SaveAs(UpLoadPath);
-                uSER.IMAGE = "/~Assets/User/img" + FileName;
-            }
-            if (ModelState.IsValid)
-            {
-                db.Entry(uSER).State = EntityState.Modified;
-                db.SaveChanges();
+                if (ModelState.IsValid)
+                {
+                    var f = Request.Files["IMAGEFile"];
+                    if (f != null && f.ContentLength > 0)
+                    {
+                        string FileName = System.IO.Path.GetFileName(f.FileName);
+                        string UploadPath = Server.MapPath("~/Assets/User/img/" + FileName);
+                        f.SaveAs(UploadPath);
+                        uSER.AVATAR = "~/Assets/User/img/" + FileName;
+                    }
+                    db.Entry(uSER).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Details", uSER);
             }
-            return View();
+            catch (Exception e)
+            {
+                ViewBag.Error(e.Message);
+                return View();
+            }
         }
 
         // GET: Users/Delete/5
